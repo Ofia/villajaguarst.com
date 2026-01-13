@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villa Jaguar - Luxury Vacation in Santa Teresa</title>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('Pictures/DJI_20251223103853_0030_D.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content h3 {
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 6px;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: transparent;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid white;
+        }
+
+        .btn:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Swiper Gallery Section */
+        .swiper-gallery-section {
+            padding: 100px 80px;
+            background-color: #f9f9f9;
+        }
+
+        .swiper-gallery-section h2 {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: 60px;
+        }
+
+        .swiper-container-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 600px;
+        }
+
+        .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: white;
+            background-color: transparent;
+            width: 40px;
+            height: 40px;
+            transition: all 0.3s;
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 36px;
+            font-weight: 300;
+        }
+
+        .swiper-pagination {
+            display: none;
+        }
+
+        .swiper-pagination-bullet {
+            background-color: white;
+            opacity: 0.5;
+        }
+
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            background-color: #00323F;
+        }
+
+        /* Welcome Section */
+        .welcome {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            padding: 100px 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .welcome-text h2 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            margin-bottom: 40px;
+            line-height: 1.3;
+        }
+
+        .welcome-text h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .welcome-text p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .welcome-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* Featured Image */
+        .featured {
+            padding: 0 80px 100px 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .featured img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border: 20px solid white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 100px 80px;
+            background-color: #f9f9f9;
+        }
+
+        .gallery-section h2 {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: 60px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-image: linear-gradient(rgba(0, 50, 80, 0.85), rgba(0, 50, 80, 0.85)), url('Pictures/DSC08944.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 100px 80px;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 60px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-box {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .contact-box:hover {
+            border-color: white;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-box h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+
+        .contact-box p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .contact-box a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-box a:hover {
+            opacity: 0.7;
+        }
+
+        .airbnb-icon, .instagram-icon {
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .airbnb-icon:hover, .instagram-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .airbnb-icon img, .instagram-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .swiper {
+                height: 500px;
+            }
+
+            .swiper-gallery-section {
+                padding: 60px 20px;
+            }
+
+            .welcome {
+                grid-template-columns: 1fr;
+                padding: 60px 40px;
+            }
+
+            .featured {
+                padding: 0 40px 60px 40px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-section {
+                padding: 60px 40px;
+            }
+
+            .contact {
+                padding: 60px 40px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .welcome-text h2 {
+                font-size: 2rem;
+            }
+
+            .swiper {
+                height: 70vh;
+            }
+
+            .swiper-gallery-section {
+                padding: 40px 10px;
+            }
+
+            .swiper-gallery-section h2 {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h3>Welcome To</h3>
+            <h1>Villa Jaguar</h1>
+            <p>Luxury Vacation in Santa Teresa</p>
+            <a href="#contact" class="btn">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Swiper Gallery Section -->
+    <section class="swiper-gallery-section">
+        <h2>Experience Villa Jaguar</h2>
+        <div class="swiper-container-wrapper">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="Pictures/DJI001.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DJI002.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DSC08078.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DSC08083.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DSC08119.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DSC08072.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DSC08183-HDR.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DSC08292-HDR.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DSC08306-HDR.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DSC08337.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DSC08423.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DSC08433.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DSC08499.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DSC08515.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DSC08617-HDR.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DSC08769.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DSC08782.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DSC08798.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DSC08944.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DSC09103.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DSC09150.jpg" alt="Villa Jaguar">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="Pictures/DSC08002.jpg" alt="Villa Jaguar">
+                    </div>
+                </div>
+                <!-- Navigation arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="welcome">
+        <div class="welcome-text">
+            <h2>Welcome to your private sanctuary in paradise</h2>
+            <h4>NEWLY BUILT OCEAN VIEW LUXURY ESTATE</h4>
+            <p>Villa Jaguar is a stunning newly constructed masterpiece featuring 4 spacious master bedrooms and 5 luxurious bathrooms. Designed with meticulous attention to detail, this architectural gem showcases the finest interior design and is built to the highest standards of quality and craftsmanship.</p>
+            <p>Perched in an exclusive location, the villa offers breathtaking ocean views to both the south and north, treating guests to spectacular sunsets from multiple vantage points. The expansive pool area features numerous sitting areas perfect for relaxation, while maintaining complete privacy. Located just minutes from Santa Teresa's vibrant center, yet secluded enough to feel like your own private retreat.</p>
+        </div>
+        <div class="welcome-image">
+            <img src="Pictures/DSC09200.jpg" alt="Villa Jaguar view">
+        </div>
+    </section>
+
+    <!-- Featured Image -->
+    <section class="featured">
+        <img src="Pictures/DJI_20251223103617_0016_D.jpg" alt="Villa Jaguar aerial view">
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <h2>The Villa</h2>
+        <div class="gallery">
+            <img src="Pictures/DSC09204.jpg" alt="Villa detail">
+            <img src="Pictures/DSC09241.jpg" alt="Villa detail">
+            <img src="Pictures/DSC09273.jpg" alt="Villa detail">
+            <img src="Pictures/DSC09276.jpg" alt="Villa detail">
+            <img src="Pictures/DSC09297.jpg" alt="Villa detail">
+            <img src="Pictures/DSC08002.jpg" alt="Villa detail">
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-grid">
+            <div class="contact-box">
+                <h3>Reservations</h3>
+                <p><a href="https://maps.google.com/?q=Calle+Jaguar,+Santa+Teresa,+Costa+Rica" target="_blank">Calle Jaguar - Santa Teresa<br>Costa Rica</a></p>
+                <p><a href="tel:+50687134031">+506 8713 4031</a></p>
+                <p><a href="mailto:info@villa-jaguar.com">info@villa-jaguar.com</a></p>
+            </div>
+            <div class="contact-box">
+                <h3>Book via Airbnb</h3>
+                <a href="https://www.airbnb.com/rooms/1591426208606618500?guests=1&adults=1&s=67&unique_share_id=392aedf0-a017-4d4b-a9d3-90f5b7952263" target="_blank">
+                    <div class="airbnb-icon">
+                        <img src="Images/airbnb-logo.png" alt="Airbnb">
+                    </div>
+                </a>
+            </div>
+            <div class="contact-box">
+                <h3>Get Social</h3>
+                <a href="#" target="_blank">
+                    <div class="instagram-icon">
+                        <img src="Images/instagram-logo.png" alt="Instagram">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            speed: 800,
+            effect: 'slide',
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+</body>
+</html>
